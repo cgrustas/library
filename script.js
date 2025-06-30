@@ -1,9 +1,8 @@
-const myLibrary = [];
-// const book1 = new Book('Don Quixote', 'Miguel de Cervantes', 1072, false, 123);
-// const book2 = new Book('The Adventures of Huckleberry Finn', 'Mark Twain', 616, false, 456);
-// const book3 = new Book('The Grapes of Wrath', 'John Steinbeck', 464, false, 789);
+const book1 = new Book('Don Quixote', 'Miguel de Cervantes', 1072, false, 123);
+const book2 = new Book('The Adventures of Huckleberry Finn', 'Mark Twain', 616, false, 456);
+const book3 = new Book('The Grapes of Wrath', 'John Steinbeck', 464, false, 789);
 
-// const myLibrary = [book1, book2, book3];
+const myLibrary = [book1, book2, book3];
 
 // Represents a book in a library
 function Book(title, author, pages, isRead, id) {
