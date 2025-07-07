@@ -35,6 +35,7 @@ function displayBooks() {
   });
 }
 
+// helper for displayBooks()
 // returns an <article> with book details
 function createBookDisplay(book) {
   const card = document.createElement('article');
@@ -48,6 +49,7 @@ function createBookDisplay(book) {
 }
 
 
+// helper for createBookDisplay()
 // returns an <h3> with the book's title
 function createBookTitle(book) {
   const bookTitle = document.createElement('h3');
@@ -55,6 +57,7 @@ function createBookTitle(book) {
   return bookTitle;
 }
 
+// helper for createBookDisplay()
 // returns a <dl> with all the book info
 function createBookDetails(book) {
   const bookInfo = document.createElement('dl');
@@ -65,6 +68,7 @@ function createBookDetails(book) {
   return bookInfo;
 }
 
+// helper for createBookDetails()
 // appends a <dt/dd> label/value pair to the bookDetails container
 function addBookDetail(bookDetails, label, value) {
   const dt = document.createElement('dt');
