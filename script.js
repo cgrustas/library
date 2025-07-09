@@ -71,6 +71,7 @@ const LibraryApp = (() => {
       const pages = form.elements['pages'].value;
       const status = form.elements['read-status'].value;
       addBookToLibrary(title, author, pages, status);
+      displayBooks();
     });
   }
 
