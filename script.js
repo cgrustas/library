@@ -42,7 +42,6 @@ function createBookDisplay(book) {
   return card;
 }
 
-
 // helper for createBookDisplay()
 // returns an <h3> with the book's title
 function createBookTitle(book) {
@@ -75,6 +74,16 @@ function addBookDetail(bookDetails, label, value) {
   bookDetails.appendChild(dd);
 }
 
+// open dialog when 'New Book' button is clicked
+function openDialog() {
+  const showButton = document.querySelector('dialog + button');
+  const dialog = document.querySelector('dialog');
+  showButton.addEventListener("click", () => {
+    dialog.showModal();
+  });
+}
+
+// initialize examples for tests
 let myLibrary;
 let book1;
 let book2;
@@ -103,9 +112,10 @@ function testAddBookToLibrary() {
 
 function testDisplayBooks() {
     console.log("=== Testing displayBooks ===");
-    initData(); // Start with known data (3 books)
+    initData();
     displayBooks();
 }
 
 testAddBookToLibrary();
 testDisplayBooks();
+openDialog();
