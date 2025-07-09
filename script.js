@@ -43,7 +43,11 @@ const LibraryApp = (() => {
     addDetail(info, 'Pages', book.pages);
     addDetail(info, 'Read Status', book.status);
 
-    card.append(title, info);
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute('type', 'button');
+    removeButton.textContent = 'Remove';
+
+    card.append(title, info, removeButton);
     return card;
   }
 
