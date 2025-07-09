@@ -16,6 +16,7 @@ const LibraryApp = (() => {
   const dialog = document.querySelector('dialog');
   const showDialogBtn = document.querySelector('dialog + button');
   const cancelDialogBtn = document.getElementById('cancel');
+  const confirmDialogBtn = document.getElementById('confirm');
 
   function addBookToLibrary(title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status));
@@ -62,6 +63,9 @@ const LibraryApp = (() => {
   function attachEventListeners() {
     showDialogBtn.addEventListener('click', () => dialog.showModal());
     cancelDialogBtn.addEventListener('click', () => dialog.close());
+    confirmDialogBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
   }
 
   function init() {
