@@ -23,6 +23,11 @@ const LibraryApp = (() => {
     myLibrary.push(new Book(title, author, pages, status));
   }
 
+  function removeBook(id) {
+    myLibrary = myLibrary.filter(book => book.id != id);
+    displayBooks();
+  }
+
   function displayBooks() {
     libraryContainer.replaceChildren();
     myLibrary.forEach(book => {
@@ -43,10 +48,7 @@ const LibraryApp = (() => {
     addDetail(info, 'Pages', book.pages);
     addDetail(info, 'Read Status', book.status);
 
-    const removeButton = document.createElement('button');
-    removeButton.setAttribute('type', 'button');
-    removeButton.textContent = 'Remove';
-
+    const removeButton = createRemoveButton(book);
     card.append(title, info, removeButton);
     return card;
   }
@@ -57,6 +59,14 @@ const LibraryApp = (() => {
     const dd = document.createElement('dd');
     dd.textContent = value;
     container.append(dt, dd);
+  }
+
+  function createRemoveButton(book) {
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute('type', 'button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', () => removeBook(book.id));
+    return removeButton;
   }
 
   function initDemoData() {
@@ -72,7 +82,7 @@ const LibraryApp = (() => {
     cancelDialogBtn.addEventListener('click', () => dialog.close());
     confirmDialogBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      const title = form.elements['title'].value; 
+      const title = form.elements['title'].value;
       const author = form.elements['author'].value;
       const pages = form.elements['pages'].value;
       const status = form.elements['read-status'].value;
@@ -89,7 +99,7 @@ const LibraryApp = (() => {
     attachEventListeners();
   }
 
-  return { init }; 
+  return { init };
 })();
 
 document.addEventListener('DOMContentLoaded', LibraryApp.init);
