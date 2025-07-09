@@ -1,24 +1,18 @@
-const book1 = new Book('Don Quixote', 'Miguel de Cervantes', 1072, false, 123);
-const book2 = new Book('The Adventures of Huckleberry Finn', 'Mark Twain', 616, false, 456);
-const book3 = new Book('The Grapes of Wrath', 'John Steinbeck', 464, false, 789);
-
-const myLibrary = [book1, book2, book3];
-
 // represents a book in a library
-function Book(title, author, pages, isRead, id) {
+function Book(title, author, pages, status, id) {
   if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
   }
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.isRead = isRead;
+  this.status = status;
   this.id = id;
 }
 
 // creates a book from the given arguments, and stores the book object into an array
-function addBookToLibrary(title, author, pages, isRead) {
-  myLibrary.push(new Book(title, author, pages, isRead, crypto.randomUUID()));
+function addBookToLibrary(title, author, pages, status) {
+  myLibrary.push(new Book(title, author, pages, status, crypto.randomUUID()));
 }
 
 // displays each book within the <div.library> on the page
@@ -64,7 +58,7 @@ function createBookDetails(book) {
 
   addBookDetail(bookInfo, 'author', book.author);
   addBookDetail(bookInfo, 'pages', book.pages);
-  addBookDetail(bookInfo, 'Read Status', book.isRead ? 'Read' : 'Not Read');
+  addBookDetail(bookInfo, 'Read Status', book.status);
   return bookInfo;
 }
 
@@ -80,3 +74,38 @@ function addBookDetail(bookDetails, label, value) {
   bookDetails.appendChild(dt);
   bookDetails.appendChild(dd);
 }
+
+let myLibrary;
+let book1;
+let book2;
+let book3;
+
+// initializes data for testing
+function initData() {
+  book1 = new Book('Don Quixote', 'Miguel de Cervantes', 1072, "want-to-read", 123);
+  book2 = new Book('The Adventures of Huckleberry Finn', 'Mark Twain', 616, "reading", 456);
+  book3 = new Book('The Grapes of Wrath', 'John Steinbeck', 464, "read", 789);
+
+  myLibrary = [book1, book2, book3];
+}
+
+// function testAddBookToLibrary() {
+//   console.log("=== Testing addBookToLibrary ===");
+//   initData();
+//   console.log("Initial Library Length: ", myLibrary.length)
+
+//   let book4 = new Book('title4', 'author4', 345, "want-to-read", 298);
+//   addBookToLibrary(book4);
+
+//   console.log("Updated Library Length: ", myLibrary.length);
+//   console.log("Last book: ", myLibrary[myLibrary.length - 1]);
+// }
+
+// function testDisplayBooks() {
+//     console.log("=== Testing displayBooks ===");
+//     initData(); // Start with known data (3 books)
+//     displayBooks();
+// }
+
+testAddBookToLibrary();
+testDisplayBooks();
