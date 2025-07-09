@@ -33,6 +33,8 @@ const LibraryApp = (() => {
 
   function createBookCard(book) {
     const card = document.createElement('article');
+    card.setAttribute('data-book-id', book.id);
+
     const title = document.createElement('h3');
     title.textContent = book.title;
 
