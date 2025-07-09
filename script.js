@@ -89,23 +89,23 @@ function initData() {
   myLibrary = [book1, book2, book3];
 }
 
-// function testAddBookToLibrary() {
-//   console.log("=== Testing addBookToLibrary ===");
-//   initData();
-//   console.log("Initial Library Length: ", myLibrary.length)
+function testAddBookToLibrary() {
+  console.log("=== Testing addBookToLibrary ===");
+  initData();
+  console.log("Initial Library Length: ", myLibrary.length)
 
-//   let book4 = new Book('title4', 'author4', 345, "want-to-read", 298);
-//   addBookToLibrary(book4);
+  let book4 = new Book('title4', 'author4', 345, "want-to-read", 298);
+  addBookToLibrary(book4);
 
-//   console.log("Updated Library Length: ", myLibrary.length);
-//   console.log("Last book: ", myLibrary[myLibrary.length - 1]);
-// }
+  console.log("Updated Library Length: ", myLibrary.length);
+  console.log("Last book: ", myLibrary[myLibrary.length - 1]);
+}
 
-// function testDisplayBooks() {
-//     console.log("=== Testing displayBooks ===");
-//     initData(); // Start with known data (3 books)
-//     displayBooks();
-// }
+function testDisplayBooks() {
+    console.log("=== Testing displayBooks ===");
+    initData(); // Start with known data (3 books)
+    displayBooks();
+}
 
 testAddBookToLibrary();
 testDisplayBooks();
