@@ -1,3 +1,9 @@
+#library {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 #library > article {
     background-color: rgb(64, 64, 64);
     border-radius: 8px;
