@@ -1,10 +1,12 @@
 #library {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-#library > article {
+#library>article {
     background-color: rgb(64, 64, 64);
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
