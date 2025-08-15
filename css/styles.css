@@ -33,4 +33,6 @@ dl dt {
 
 #library article div {
     align-self: flex-end;
+    display: flex;
+    gap: .5rem;
 }
