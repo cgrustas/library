@@ -21,6 +21,11 @@
     grid-template-columns: auto 1fr;
 }
 
+article h3,
+article dd {
+    color: white;
+} 
+
 dl dt {
     font-weight: bold;
     color: lightgrey;
