@@ -21,6 +21,10 @@
     grid-template-columns: auto 1fr;
 }
 
+dl dt {
+    font-weight: bold;
+}
+
 #library article div {
     align-self: flex-end;
 }
