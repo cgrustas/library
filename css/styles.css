@@ -10,3 +10,8 @@
     display: flex;
     flex-direction: column;
 }
+
+#library > article > dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
