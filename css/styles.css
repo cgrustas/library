@@ -49,7 +49,7 @@ dl dt {
     gap: .5rem;
 }
 
-#library article div button {
+button {
     appearance: none;
     background-color: rgb(87, 87, 255);
     border: none;
