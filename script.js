@@ -6,6 +6,20 @@ class Book {
     this.status = status;
     this.id = id;
   }
+
+  toggleStatus() {
+    switch(this.status) {
+      case 'want-to-read':
+        this.status = 'reading';
+        break;
+      case 'reading':
+        this.status = 'read';
+        break;
+      case 'read':
+        this.status = 'want-to-read';
+        break;
+    }
+  }
 }
 
 const LibraryApp = (() => {
@@ -48,8 +62,10 @@ const LibraryApp = (() => {
     addDetail(info, 'Pages', book.pages);
     addDetail(info, 'Read Status', book.status);
 
+    const statusButton = createStatusButton(book);
     const removeButton = createRemoveButton(book);
-    card.append(title, info, removeButton);
+
+    card.append(title, info, statusButton, removeButton);
     return card;
   }
 
@@ -59,6 +75,17 @@ const LibraryApp = (() => {
     const dd = document.createElement('dd');
     dd.textContent = value;
     container.append(dt, dd);
+  }
+
+  function createStatusButton(book) {
+    const statusButton = document.createElement('button');
+    statusButton.setAttribute('type', 'button');
+    statusButton.textContent = 'Change Status';
+    statusButton.addEventListener('click', () => {
+      book.toggleStatus()
+      displayBooks();
+    });
+    return statusButton;
   }
 
   function createRemoveButton(book) {
