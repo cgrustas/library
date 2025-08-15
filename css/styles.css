@@ -2,6 +2,10 @@
     background: rgb(24, 24, 24);
 }
 
+body {
+    padding: 2rem;
+}
+
 #library {
     display: grid;
     gap: 1rem;
