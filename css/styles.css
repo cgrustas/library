@@ -1,3 +1,7 @@
+:root {
+    background: rgb(24, 24, 24);
+}
+
 #library {
     display: grid;
     gap: 1rem;
