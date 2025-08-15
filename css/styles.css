@@ -43,4 +43,5 @@ dl dt {
     border: none;
     border-radius: 4px;
     color: white;
+    padding: .25rem .5rem;
 }
