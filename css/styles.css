@@ -23,6 +23,7 @@
 
 dl dt {
     font-weight: bold;
+    color: lightgrey;
 }
 
 #library article div {
