@@ -66,4 +66,6 @@ body>button {
     align-self: flex-start;
 }
 
-dialog {}
+dialog {
+    border: none;
+}
