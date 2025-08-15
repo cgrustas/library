@@ -21,6 +21,7 @@
     grid-template-columns: auto 1fr;
 }
 
+h1,
 article h3,
 article dd {
     color: white;
