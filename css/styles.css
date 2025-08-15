@@ -9,7 +9,7 @@
 }
 
 #library>article {
-    background-color: rgb(64, 64, 64);
+    background-color: rgb(46, 46, 46);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ article dd {
 
 dl dt {
     font-weight: bold;
-    color: lightgrey;
+    color: rgb(161, 161, 161);
 }
 
 #library article div {
