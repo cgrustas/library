@@ -39,4 +39,5 @@ dl dt {
 
 #library article div button {
     appearance: none;
+    background-color: rgb(161, 161, 161);
 }
