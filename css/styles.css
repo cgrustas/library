@@ -16,7 +16,7 @@
     padding: 1rem;
 }
 
-#library > article > dl {
+#library>article>dl {
     display: grid;
     grid-template-columns: auto 1fr;
 }
@@ -24,7 +24,7 @@
 article h3,
 article dd {
     color: white;
-} 
+}
 
 dl dt {
     font-weight: bold;
@@ -35,4 +35,8 @@ dl dt {
     align-self: flex-end;
     display: flex;
     gap: .5rem;
+}
+
+#library article div button {
+    appearance: none;
 }
