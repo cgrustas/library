@@ -103,6 +103,8 @@ form {
 
 .book-detail>input,
 fieldset {
+    padding: .25rem .5rem;
+    color: white;
     appearance: none;
     border: 1px solid white;
     background-color: rgb(46, 46, 46);
