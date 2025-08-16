@@ -93,6 +93,13 @@ form {
 
 .read-status {
     flex: 1;
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: .25rem;
+}
+
+.read-status div {
+    display: contents;
 }
 
 .book-detail>input {
