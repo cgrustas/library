@@ -69,3 +69,7 @@ body>button {
 dialog {
     border: none;
 }
+
+dialog::backdrop {
+    background-color: rgba(24, 24, 24, .9);
+}
