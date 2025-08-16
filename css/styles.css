@@ -94,7 +94,7 @@ form {
     flex: 1;
     display: grid;
     grid-template-columns: max-content auto;
-    gap: .25rem;
+    gap: .5rem;
 }
 
 .read-status div {
@@ -109,4 +109,8 @@ fieldset {
     border: 1px solid white;
     background-color: rgb(46, 46, 46);
     border-radius: 4px;
+}
+
+fieldset {
+    padding: .75rem;
 }
