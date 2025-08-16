@@ -76,3 +76,10 @@ dialog {
 dialog::backdrop {
     background-color: rgba(24, 24, 24, .9);
 }
+
+.book-detail > input {
+    appearance: none;
+    border: 1px solid white;
+    background-color: rgb(46, 46, 46);
+    border-radius: 4px;
+}
