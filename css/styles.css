@@ -38,7 +38,8 @@ dialog {
 
 h1,
 article h3,
-article dd {
+article dd,
+.read-status label {
     color: white;
 }
 
