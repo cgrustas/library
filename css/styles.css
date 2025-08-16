@@ -42,6 +42,8 @@ article dd {
     color: white;
 }
 
+.book-detail > label, 
+.read-status legend,
 dl dt {
     font-weight: bold;
     color: rgb(161, 161, 161);
@@ -68,6 +70,7 @@ body>button {
 
 dialog {
     border: none;
+
 }
 
 dialog::backdrop {
