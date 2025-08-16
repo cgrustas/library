@@ -71,7 +71,6 @@ body>button {
 
 dialog {
     border: none;
-
 }
 
 dialog::backdrop {
@@ -102,7 +101,8 @@ form {
     display: contents;
 }
 
-.book-detail>input {
+.book-detail>input,
+fieldset {
     appearance: none;
     border: 1px solid white;
     background-color: rgb(46, 46, 46);
