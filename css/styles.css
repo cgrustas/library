@@ -42,7 +42,7 @@ article dd {
     color: white;
 }
 
-.book-detail > label, 
+.book-detail>label,
 .read-status legend,
 dl dt {
     font-weight: bold;
@@ -77,7 +77,13 @@ dialog::backdrop {
     background-color: rgba(24, 24, 24, .9);
 }
 
-.book-detail > input {
+form {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.book-detail>input {
     appearance: none;
     border: 1px solid white;
     background-color: rgb(46, 46, 46);
