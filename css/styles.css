@@ -83,6 +83,17 @@ form {
     gap: .75rem;
 }
 
+.book-detail {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .75rem;
+}
+
+.read-status {
+    flex: 1;
+}
+
 .book-detail>input {
     appearance: none;
     border: 1px solid white;
