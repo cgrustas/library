@@ -8,15 +8,15 @@ class Book {
   }
 
   toggleStatus() {
-    switch(this.status) {
-      case 'want-to-read':
-        this.status = 'reading';
+    switch (this.status) {
+      case "want-to-read":
+        this.status = "reading";
         break;
-      case 'reading':
-        this.status = 'read';
+      case "reading":
+        this.status = "read";
         break;
-      case 'read':
-        this.status = 'want-to-read';
+      case "read":
+        this.status = "want-to-read";
         break;
     }
   }
@@ -26,43 +26,43 @@ const LibraryApp = (() => {
   let myLibrary = [];
 
   // HTML references
-  const libraryContainer = document.getElementById('library');
-  const dialog = document.querySelector('dialog');
-  const showDialogBtn = document.querySelector('dialog + button');
-  const cancelDialogBtn = document.getElementById('cancel');
-  const confirmDialogBtn = document.getElementById('confirm');
-  const form = document.querySelector('form');
+  const libraryContainer = document.getElementById("library");
+  const dialog = document.querySelector("dialog");
+  const showDialogBtn = document.querySelector("dialog + button");
+  const cancelDialogBtn = document.getElementById("cancel");
+  const confirmDialogBtn = document.getElementById("confirm");
+  const form = document.querySelector("form");
 
   function addBookToLibrary(title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status));
   }
 
   function removeBook(id) {
-    myLibrary = myLibrary.filter(book => book.id != id);
+    myLibrary = myLibrary.filter((book) => book.id != id);
     displayBooks();
   }
 
   function displayBooks() {
     libraryContainer.replaceChildren();
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book) => {
       const card = createBookCard(book);
       libraryContainer.appendChild(card);
     });
   }
 
   function createBookCard(book) {
-    const card = document.createElement('article');
-    card.setAttribute('data-book-id', book.id);
+    const card = document.createElement("article");
+    card.setAttribute("data-book-id", book.id);
 
-    const title = document.createElement('h3');
+    const title = document.createElement("h3");
     title.textContent = book.title;
 
-    const info = document.createElement('dl');
-    addDetail(info, 'Author', book.author);
-    addDetail(info, 'Pages', book.pages);
-    addDetail(info, 'Read Status', book.status);
+    const info = document.createElement("dl");
+    addDetail(info, "Author", book.author);
+    addDetail(info, "Pages", book.pages);
+    addDetail(info, "Read Status", book.status);
 
-    const buttons = document.createElement('div');
+    const buttons = document.createElement("div");
     const statusButton = createStatusButton(book);
     const removeButton = createRemoveButton(book);
     buttons.appendChild(statusButton);
@@ -73,49 +73,54 @@ const LibraryApp = (() => {
   }
 
   function addDetail(container, label, value) {
-    const dt = document.createElement('dt');
+    const dt = document.createElement("dt");
     dt.textContent = label;
-    const dd = document.createElement('dd');
+    const dd = document.createElement("dd");
     dd.textContent = value;
     container.append(dt, dd);
   }
 
   function createStatusButton(book) {
-    const statusButton = document.createElement('button');
-    statusButton.setAttribute('type', 'button');
-    statusButton.textContent = 'Change Status';
-    statusButton.addEventListener('click', () => {
-      book.toggleStatus()
+    const statusButton = document.createElement("button");
+    statusButton.setAttribute("type", "button");
+    statusButton.textContent = "Change Status";
+    statusButton.addEventListener("click", () => {
+      book.toggleStatus();
       displayBooks();
     });
     return statusButton;
   }
 
   function createRemoveButton(book) {
-    const removeButton = document.createElement('button');
-    removeButton.setAttribute('type', 'button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', () => removeBook(book.id));
+    const removeButton = document.createElement("button");
+    removeButton.setAttribute("type", "button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => removeBook(book.id));
     return removeButton;
   }
 
   function initDemoData() {
     myLibrary = [
-      new Book('Don Quixote', 'Miguel de Cervantes', 1072, 'want-to-read'),
-      new Book('The Adventures of Huckleberry Finn', 'Mark Twain', 616, 'reading'),
-      new Book('The Grapes of Wrath', 'John Steinbeck', 464, 'read'),
+      new Book("Don Quixote", "Miguel de Cervantes", 1072, "want-to-read"),
+      new Book(
+        "The Adventures of Huckleberry Finn",
+        "Mark Twain",
+        616,
+        "reading"
+      ),
+      new Book("The Grapes of Wrath", "John Steinbeck", 464, "read"),
     ];
   }
 
   function attachEventListeners() {
-    showDialogBtn.addEventListener('click', () => dialog.showModal());
-    cancelDialogBtn.addEventListener('click', () => dialog.close());
-    confirmDialogBtn.addEventListener('click', (event) => {
+    showDialogBtn.addEventListener("click", () => dialog.showModal());
+    cancelDialogBtn.addEventListener("click", () => dialog.close());
+    confirmDialogBtn.addEventListener("click", (event) => {
       event.preventDefault();
-      const title = form.elements['title'].value;
-      const author = form.elements['author'].value;
-      const pages = form.elements['pages'].value;
-      const status = form.elements['read-status'].value;
+      const title = form.elements["title"].value;
+      const author = form.elements["author"].value;
+      const pages = form.elements["pages"].value;
+      const status = form.elements["read-status"].value;
       addBookToLibrary(title, author, pages, status);
       displayBooks();
       form.reset();
@@ -132,4 +137,4 @@ const LibraryApp = (() => {
   return { init };
 })();
 
-document.addEventListener('DOMContentLoaded', LibraryApp.init);
+document.addEventListener("DOMContentLoaded", LibraryApp.init);
