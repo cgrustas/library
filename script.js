@@ -113,19 +113,67 @@ const LibraryApp = (() => {
   }
 
   function attachEventListeners() {
-    showDialogBtn.addEventListener("click", () => dialog.showModal());
-    cancelDialogBtn.addEventListener("click", () => dialog.close());
-    confirmDialogBtn.addEventListener("click", (event) => {
-      event.preventDefault();
-      const title = form.elements["title"].value;
-      const author = form.elements["author"].value;
-      const pages = form.elements["pages"].value;
-      const status = form.elements["read-status"].value;
-      addBookToLibrary(title, author, pages, status);
-      displayBooks();
-      form.reset();
+    form.addEventListener("submit", (e) => handleFormSubmission(e));
+    showDialogBtn.addEventListener("click", () => {
+      clearValidationMessages();
+      dialog.showModal();
+    });
+    cancelDialogBtn.addEventListener("click", () => {
+      clearValidationMessages();
       dialog.close();
     });
+  }
+
+  /**
+   * Checks for invalid (empty) inputs and submits the form when all inputs are valid.
+   * Displays a custom error message when the user tries to submit an empty form field.
+   * @param {Event} event - The form submission event
+   */
+  function handleFormSubmission(event) {
+    event.preventDefault();
+
+    // check title
+    const title = document.getElementById("title");
+    title.setCustomValidity("");
+    if (!title.value) {
+      title.setCustomValidity("The title field must be filled!");
+      title.reportValidity();
+      return;
+    }
+
+    // check author
+    const author = document.getElementById("author");
+    author.setCustomValidity("");
+    if (!author.value) {
+      author.setCustomValidity("The author field must be filled!");
+      author.reportValidity();
+      return;
+    }
+
+    // check pages
+    const pages = document.getElementById("pages");
+    pages.setCustomValidity("");
+    if (!pages.value) {
+      pages.setCustomValidity("The pages field must be filled!");
+      pages.reportValidity();
+      return;
+    }
+
+    const status = form.elements["read-status"].value;
+    clearValidationMessages();
+    addBookToLibrary(title.value, author.value, pages.value, status);
+    displayBooks();
+    form.reset();
+    dialog.close();
+  }
+
+  /**
+   * Clears custom validation messages
+   */
+  function clearValidationMessages() {
+    document.getElementById("title").setCustomValidity("");
+    document.getElementById("author").setCustomValidity("");
+    document.getElementById("pages").setCustomValidity("");
   }
 
   function init() {
